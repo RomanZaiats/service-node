@@ -3,6 +3,10 @@ const service = module.exports = {};
 service.init = (Routes) => {
     const express = require('express');
     const app = express();
+    const BodyParser = require('body-parser');
+
+    app.use(BodyParser.json());
+    app.use(BodyParser.urlencoded({ extended: false }));
 
     app.use('/', Routes);
 
